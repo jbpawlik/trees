@@ -50,10 +50,30 @@ export default class BST {
     }
   }
 
-  remove(value) {
-    if (this.search(value) === false) {
+  remove(nodeToBeDeleted) {
+    if (this.search(nodeToBeDeleted) === false) {
       return false
-    } 
-  
+    } else {
+      let currentNode = this.root;
+      while (true) {
+        if (currentNode.data > nodeToBeDeleted) {
+          if (currentNode.left.data === nodeToBeDeleted) {
+            currentNode.left = null;
+            return this;
+          } else {
+            currentNode = currentNode.left;
+          }
+        } else if (currentNode.data < nodeToBeDeleted) {
+          if (currentNode.right.data === nodeToBeDeleted) {
+            currentNode.right = null;
+            return this;
+          } else {
+            currentNode = currentNode.right;
+          }
+        } else {
+          return this;
+        }
+      }
+    }
   }
 }

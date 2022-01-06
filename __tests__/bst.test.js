@@ -102,5 +102,11 @@ describe('binarySearchTree', ()=> {
     expect(pbst.remove(8)).toEqual(false);
   });
 
-  
+  test('it should remove a leaf node with the input value', ()=> {
+    pbst.remove(7)
+    // expect(pbst.root.right.right.data).toEqual(null);
+    expect(pbst.search(7)).toEqual(false)
+  });
+
+
 });
