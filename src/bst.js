@@ -70,6 +70,9 @@ export default class BST {
           } else {
             currentNode = currentNode.right;
           }
+        } else if (currentNode.data === nodeToBeDeleted) {
+          this.root = null;
+          return this;
         } else {
           return this;
         }

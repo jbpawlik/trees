@@ -108,5 +108,19 @@ describe('binarySearchTree', ()=> {
     expect(pbst.search(7)).toEqual(false)
   });
 
+  test('it should remove the root if it is the only node', () => {
+    let robst = new BST();
+    let rootNode = new BSTNode(1);
+    robst.insertNode(rootNode);
+    robst.search(1);
+    robst.remove(1);
+    expect(robst.root).toEqual(null);
+  }); 
+
+  test('it should remove a node with only one child', ()=> {
+    pbst.remove(5);
+    pbst.remove(6);
+    expect(pbst.root.right.data).toEqual(7)
+  })
 
 });
